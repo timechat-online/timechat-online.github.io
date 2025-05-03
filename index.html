@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos">
+  <meta property="og:title" content="TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos"/>
+  <meta property="og:description" content="TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos"/>
+  <meta property="og:url" content="https://timechat-online.github.io/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="/static/image/teaser.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos">
+  <meta name="twitter:description" content="TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/image/teaser.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Video Understanding, Streaming Video, Token Pruning, VideoLLM, Video Large Language Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://yaolinli.github.io/" target="_blank">Linli Yao</a><sup>1,*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://shiningcrevice.github.io/" target="_blank">Yicheng Li</a><sup>1,*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://github.com/wyclike/" target="_blank">Yuancheng Wei</a><sup>2,*</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://lilei-nlp.github.io/" target="_blank">Lei Li</a><sup>3</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://renshuhuai-andy.github.io/" target="_blank">Shuhuai Ren</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://llyx97.github.io/" target="_blank">Yuanxin Liu</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://ouyangkun10.github.io/" target="_blank">Kun Ouyang</a><sup>1</sup>,
+                  </span>
+                </div>
+
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block">
+                    <a href="https://leanwang326.github.io/.github.io//" target="_blank">Lean Wang</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://lscpku.github.io/" target="_blank">Shicheng Li</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://openreview.net/profile?id=~Sida_Li3" target="_blank">Sida Li</a><sup>1</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://ikekonglp.github.io/" target="_blank">Lingpeng Kong</a><sup>3</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://leuchine.github.io/" target="_blank">Qi Liu</a><sup>3</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://scholar.google.com/citations?user=COdftTMAAAAJ&hl=en&oi=ao" target="_blank">Yuanxing Zhang</a><sup>4</sup>,
+                  </span>
+                  <span class="author-block">
+                    <a href="https://xusun26.github.io/" target="_blank">Xu Sun</a><sup>1</sup>
+                  </span>
+                </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Peking University, <sup>2</sup>South China University of Technology, <sup>3</sup><br>The University of Hong Kong, <sup>4</sup>Kuaishou Technology</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Equal contribution</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+
+                      <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2504.17343" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Github link -->
+                    <span class="link-block">
+                      <a href="https://github.com/yaolinli/TimeChat-Online" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                      </a>
+                    </span>
+
+                    <!-- Dataset link -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/datasets/yaolily/TimeChat-Online-139K" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-database"></i>
+                      </span>
+                      <span>TimeChat-Online-139K Dataset (Coming Soon)</span>
+                      </a>
+                    </span>
+
+                    <!-- Checkpoints link -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/yaolily/TimeChat-Online" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-save"></i>
+                      </span>
+                      <span>7B Checkpoint (Coming Soon)</span>
+                      </a>
+                    </span>
+
+                  </div>
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Case Study Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.2rem;">
+            This paper presents <strong>TimeChat-Online</strong>, a novel online VideoLLM for efficient Streaming Video Understanding. </p>
+        <p style="font-size: 1.2rem;">
+            At its core is the innovative <strong>Differential Token Dropping (DTD)</strong> module that selectively preserves only significant temporal changes across continuous video streams. 
+        </p>
+        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+            
+        </p>
+        <div style="margin-bottom: 2.5rem;">
+          <img src="static/images/teaser.png" alt="TimeChat-Online Case Study" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem;">
+            The yellow-highlighted frames with few tokens dropped indicate significant video scene transitions.
+          </p>
+        </div>
+        <p style="font-size: 1.2rem;">
+          The DTD module <strong>eliminates 82.8% of redundant video tokens, while achieving a 1.76x speedup in response latency and maintaining over 98% of original accuracy</strong>, revealing that over 80% of streaming video content is naturally redundant without any user-query guidance. Furthermore, it naturally monitors video scene transitions, facilitating online <i>Proactive Responding</i>.
+        </p>
+        <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"></p>
+        <div class="hero-body" style="display: flex; justify-content: center; align-items: center; padding: 0; margin-bottom: 1rem;">
+            <img src="static/images/intro.png" alt="TimeChat-Online Teaser" style="width: 100%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 4px;">
+        </div>
+        <p style="font-size: 1.2rem; margin-bottom: 5rem;"></p>
+        <p style="font-size: 1.2rem;">
+            When directly integrated with Qwen2.5VL-7B without additional training, <strong>DTD achieves a 5.7-point accuracy improvement while reducing video tokens by 84.6% on the challenging VideoMME long subset</strong> containing videos of 30-60 minutes.
+            Furthermore, longer videos permit higher rates of redundant visual token dropping without performance degradation (up to 97.5% for the long subset).
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="static/images/videolength.png" alt="TimeChat-Online Case Study" style="width: 50%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container" style="padding: 20px; max-width: 1000px; margin: 0 auto;">
+    <!-- Abstract title above the image -->
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">Abstract</h2>
+    
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <p>
+The rapid growth of online video platforms, particularly live streaming services, has created an urgent need for real-time video understanding systems. These systems must process continuous video streams and respond to user queries instantaneously, presenting unique challenges for current Video Large Language Models (VideoLLMs). While existing VideoLLMs excel at processing complete videos, they face significant limitations in streaming scenarios due to their inability to handle dense, redundant frames efficiently.
+
+We present TimeChat-Online, a novel online VideoLLM for real-time video interaction. Its core innovation, the Differential Token Drop (DTD) module, tackles visual redundancy by preserving meaningful temporal changes while eliminating static content between frames. Our experiments show DTD reduces video tokens by 82.8% while maintaining 98% performance on StreamingBench, revealing that over 80% of streaming video content is naturally redundant without requiring user-query guidance.
+
+For seamless real-time interaction, we introduce TimeChat-Online-139K, a comprehensive streaming video dataset with diverse interaction patterns spanning backward-tracing, current-perception, and future-responding scenarios. TimeChat-Online's unique Proactive Response capability—naturally achieved through continuous monitoring of video scene transitions via DTD—sets it apart from conventional approaches. 
+
+Our evaluation confirms TimeChat-Online's superior performance on streaming benchmarks (StreamingBench and OvOBench) while maintaining competitive results on long-form video tasks (Video-MME, LongVideoBench, and MLVU). This work establishes a new paradigm for efficient streaming video understanding and demonstrates the potential of leveraging natural video redundancy in future VideoLLM development.
+      </p>
+      
+    </div>
+    <!-- Full-width teaser image with enhanced styling -->
+    <div class="hero-body" style="display: flex; justify-content: center; align-items: center; padding: 0; margin-bottom: 1rem;">
+    </div>
+  </div>
+
+</section>
+
+<!-- New section about Differential Token Dropping Method -->
+<section class="section" id="method" style="margin-top: 1rem; margin-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Differential Token Dropping Design</h2>
+    
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <p>
+        The core of TimeChat-Online lies in its Differential Token Drop (DTD) module, designed to efficiently eliminate visual redundancy in streaming videos by only preserving significant temporal changes.
+      </p>
+    </div>
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <h4 class="title is-5">How DTD Works</h4>
+
+        <ol style="list-style-type: decimal; margin-left: 2rem;">
+          <li>
+            <strong>Patchify and Encoding:</strong> Each video frame is split into a sequence of visual patches and then encoded into visual tokens using a vision encoder (i.e., ViT).
+          </li>
+          <li>
+            <strong>Static Redundancy Calculation:</strong> DTD quantifies redundancy between temporally consecutive frames at either the pixel level or feature level. This process involves comparing spatially-aligned tokens from consecutive frames and measuring their similarity to determine whether the newly-arriving frame is redundant.
+            <ul>
+              <li><em>Pixel-level redundancy: </em> calculates L1 distance between two pixel patches (before ViT).</li>
+              <li><em>Feature-level redundancy: </em> uses cosine similarity between two visual tokens (after ViT).</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Position-aware Token Dropping:</strong> Based on static redundancy, DTD creates a binary mask to identify which tokens to keep and which to discard. Importantly, it preserves the original Multimodal-ROPE (t, h, w) position ids of the retained tokens to maintain the fine-grained spatial-temporal structure of the video.
+          </li>
+        </ol>
+    </div>
+    <!-- Model figure with caption -->
+    <div style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/model.png" alt="Differential Token Dropping Method" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      
+    </div>
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+    <h4 class="title is-5">Facilitating  Proactive Response</h4>
+    <p>
+        The drop ratio curve across the timeline naturally reveals video scene transitions, as frames with significant changes from previous frames have fewer dropped tokens, visualized as valleys (low drop ratio) in the curve. These transition points serve as natural "trigger times" for proactive responses, enabling the model to detect when meaningful new visual information becomes available without requiring additional perception modules. </p>
+        <p>
+        This mechanism allows TimeChat-Online to achieve <i>Proactive Response</i> by autonomously identifying critical moments in streaming content and responding accordingly.
+        </p>
+      </p>
+    </div>
+    
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Key Technical Innovations of DTD</h4>
+      <ul class="feature-list" style="list-style-type: none; margin-left: 0;">
+        <li>
+          <strong>✨ Video-aware Dynamic Pruning:</strong>
+          <p>DTD adaptively reduces video tokens from a holistic video perspective, well-suited for both high-speed and slow-motion videos.</p>
+        </li>
+        <li>
+          <strong>📝 Positional Reservation:</strong>
+          <p>DTD maintains the fine-grained spatial-temporal positions of retained tokens, ensuring precise spatial localization and temporal understanding capabilities.</p>
+        </li>
+        <li>
+          <strong>⚡ Streaming-friendly Design:</strong>
+          <p>DTD efficiently processes video streams by calculating redundancy only for newly-arriving frames with faster speed, without re-processing historical video content.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- Dataset Information Section -->
+<section class="section" id="dataset" style="margin-top: 0; padding-top: 0.5rem; margin-bottom: 1rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">TimeChat-Online-139K Dataset</h2>
+    
+    <div class="content has-text-justified" style="margin-bottom: 2rem;">
+      <p>
+        To enable more flexible real-time interactions, we present <strong>TimeChat-Online-139K</strong>, a comprehensive streaming video dataset that encompasses backward-tracing, current-perception, and future-responding tasks across diverse online video scenarios.
+      </p>
+      <p>
+        Our dataset creation involved four key steps: (1) Collecting visually informative videos with diverse scene changes, (2) Generating scene-oriented dense captions using GPT-4o, (3) Creating streaming VideoQA samples based on these captions, and (4) Constructing negative samples for future-response training.
+      </p>
+    </div>
+    
+    <!-- Card-style dataset statistics -->
+    <div class="box" style="margin-bottom: 2.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; background-color: #f9f9fd; border-top: 5px solid #95A5B0;">
+        <h4 class="title is-5" style="margin-bottom: 1rem;">Data Statistics:</h4>
+        <ul style="list-style-type: disc; margin-left: 2rem; font-size: 1.1rem;">
+          <li style="margin-bottom: 1rem;">
+            <strong>Videos:</strong> 11,043 visually informative videos
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Average Duration:</strong> 11.1 minutes per video
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Scene-oriented Key Frames:</strong> Average of 87.8 key frames per video
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Key Frame Interval:</strong> ~7.14 seconds between consecutive frames
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Caption Length:</strong> ~176 words per key frame description
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>QA Pairs:</strong> 139K question-answer pairs
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <strong>Task Types:</strong> Backward Tracing, Real-Time Visual Perception, and Forward Active Responding
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Dataset Example Visualization -->
+    <div class="container is-max-desktop">
+      <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <img src="static/images/task_type_new.png" alt="TimeChat-Online Model Architecture" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End Dataset Section -->
+
+<!-- Experiments Section -->
+<section class="section" id="experiments" style="margin-top: 1rem; margin-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Experiments</h2>
+    
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <p>
+        We conduct comprehensive experiments on both streaming video benchmarks (StreamingBench and OVO-Bench) and offline long-form video benchmarks (MLVU, LongVideoBench, VideoMME) to validate the effectiveness of TimeChat-Online. 
+      </p>
+    </div>
+
+    <!-- Table 1: StreamingBench Results -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Performance on StreamingBench</h4>
+      
+      <p>
+        On StreamingBench, TimeChat-Online achieves 56.56% accuracy with 82.6% token reduction, demonstrating state-of-the-art performance among online and offlineVideoLLMs. This significant token reduction of over 80% while maintaining high accuracy confirms that streaming videos contain substantial natural redundancy that can be effectively filtered.
+      </p>
+      
+      <div style="overflow-x: auto; margin-bottom: 1rem;">
+        <img src="static/images/streamingbench_full.png" alt="Performance on StreamingBench" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      </div>
+      
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem; margin-bottom: 2rem;">
+        <strong>Table 1:</strong> Performance comparison on StreamingBench full set including three categories: Real-Time Visual Understanding, Omni-
+        Source Understanding and Contextual Understanding.
+      </p>
+    </div>
+    
+    <!-- Table 2: OVO-Bench Results -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Evaluation on OVO-Bench</h4>
+      
+      <p>
+        TimeChat-Online significantly outperforms existing online VideoLLMs across real-time perception, backward tracing, and forward responding tasks on OVO-Bench. 
+      </p>
+      
+      <div style="overflow-x: auto; margin-bottom: 1rem;">
+        <img src="static/images/table2.png" alt="Evaluation on OVO-Bench" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      </div>
+      
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem; margin-bottom: 2rem;">
+        <strong>Table 2:</strong> Evaluation results on OVO-Bench comprising three categories: i) <em>Real-Time Visual Perception</em> (OCR: Optical Character Recognition, ACR: Action Recognition, ATR: Attribute Recognition, STU: Spatial Understanding, FPD: Future Prediction, OJR: Object Recognition), ii) <em>Backward Tracing</em> (EPM: Episodic Memory, ASI: Action Sequence Identification, HLD: Hallucination Detection), and iii) <em>Forward Active Responding</em> (REC: Repetition Event Count, SSR: Sequential Steps Recognition, CRR: Clues Reveal Responding).
+      </p>
+    </div>
+    
+    <!-- Table 3: Long Video Benchmark Results -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Results on Offline Long Video Benchmarks</h4>
+      
+      <p>
+        Compared with existing online VideoLLMs, TimeChat-Online achieves superior performance on all long video benchmarks. It achieves up to 85.0% reduction in video tokens while maintaining or even improving performance across long-form video benchmarks. This demonstrates the effectiveness of our DTD approach for both streaming and offline video tasks.
+      </p>
+      <p style="font-size: 1.05rem; margin-bottom: 2rem;">
+        When integrated with Qwen2.5-VL-7B without training, our DTD module improves VideoMME (long subset) accuracy by 5.7 points while reducing 84.6% of video tokens.
+        Notably, higher token drop ratios consistently enhance performance, indicating that substantial vision redundancy in long videos can be eliminated to improve efficiency and understanding capabilities.
+      </p>
+      <div style="overflow-x: auto; margin-bottom: 1rem;">
+        <img src="static/images/table3.png" alt="Results on Long Video Benchmarks" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      </div>
+      
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Table 3:</strong> Results on offline long video benchmarks. We report the accuracy on the MLVU, LongVideoBench and VideoMME(w/o subtitles). † indicates the reproduced results.
+      </p>
+      
+      
+    </div>
+  </div>
+</section>
+<!-- End Experiments Section -->
+
+<!-- Visualized Cases Section -->
+<section class="section" id="visualized_cases" style="margin-top: 1rem; margin-bottom: 2rem;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Visualized Cases</h2>
+    
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <p>
+        We present visualized examples demonstrating how TimeChat-Online processes streaming video content in real-time, highlighting the effectiveness of our Differential Token Dropping module and Proactive Response capability.
+      </p>
+    </div>
+
+    <!-- Case Study 1: Proactive Response with Scene Change Detection -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Case Study 1: Proactive Response with Scene Change Detection</h4>
+    </div>
+    
+    <div style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/case1.png" alt="Proactive Response with Scene Change Detection" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem;">
+        TimeChat-Online autonomously identifies significant scene transitions in streaming videos and generates proactive responses without requiring explicit user queries. The model precisely detects when meaningful new visual information becomes available, as illustrated by the drop ratio timeline, where valleys (aligned frames with yellow lightbulb icons) indicate substantial visual changes that trigger intelligent autonomous responses.
+      </p>
+    </div>
+
+    <!-- Case Study 2: Feature-level vs. Pixel-level Token Dropping -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Case Study 2: Feature-level vs. Pixel-level Token Dropping</h4>
+    </div>
+    
+    <div style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/case2.png" alt="Feature-level vs. Pixel-level Token Dropping" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem;">
+        Comparison between feature-level (left) and pixel-level (right) token dropping. Feature-level approach with τ<sub>feat</sub> = 0.4 achieves a 58.3% drop ratio while effectively preserving visually important elements.
+      </p>
+    </div>
+
+    <!-- Case Study 3: Different Application Scenarios -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Case Study 3: Highly Redundant Video Content</h4>
+    </div>
+    
+    <div style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/case3.png" alt="Different Application Scenarios" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem;">
+        DTD dynamically adapts to different video content types. This example demonstrates that with the same threshold τ<sub>feat</sub> = 0.4, DTD achieves an impressive 89.5% drop ratio (compared to 58.3% in Case 2) for highly redundant drawing scenarios, highlighting its efficiency in content-adaptive token preservation.
+      </p>
+    </div>
+
+    <!-- Case Study 4: Scene Transition Timeline and Drop Ratio Analysis -->
+    <div class="content has-text-justified" style="margin-bottom: 2rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <h4 class="title is-5">Case Study 4: Visualizing Scene Transitions Through Drop Ratio Analysis</h4>
+    </div>
+    
+    <div style="margin-bottom: 2.5rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+      <img src="static/images/case4.png" alt="Scene Transition Timeline and Drop Ratio Analysis" style="width: 100%; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <p style="font-size: 0.9rem; color: #95A5B0; text-align: left; margin-top: 0.5rem;">
+        Drop ratio timeline acts as a natural scene transition detector. Significant visual changes create valleys in the curve, identifying key video moments. Left: Scene transition with trigger time. Right: Drop ratio curve showing valleys at scene changes, with 0.85 threshold for increased token retention.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- End Visualized Cases Section -->
+
+<!--BibTeX citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{yao2025timechatonline,
+    title={TimeChat-Online: 80% Visual Tokens are Naturally Redundant in Streaming Videos}, 
+    author={Linli Yao and Yicheng Li and Yuancheng Wei and Lei Li and Shuhuai Ren and Yuanxin Liu and Kun Ouyang and Lean Wang and Shicheng Li and Sida Li and Lingpeng Kong and Qi Liu and Yuanxing Zhang and Xu Sun},
+    year={2025},
+    eprint={2504.17343},
+    archivePrefix={arXiv},
+    primaryClass={cs.CV},
+    url={https://arxiv.org/abs/2504.17343}, 
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+<!-- Acknowledgement section -->
+<section class="section" id="Acknowledgement">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgement</h2>
+    <p>
+      <strong>Usage and License Notices:</strong> The data, code and checkpoints are intended and licensed for research use only. They are also restricted to uses that follow the license agreements of the respective datasets and models used in this work.
+    </p>
+    <p>
+      <strong>Related Projects:</strong> 
+      <a href="https://github.com/QwenLM/Qwen2.5-VL" target="_blank">Qwen2.5VL</a>, 
+      <a href="https://github.com/lyuchenyang/VideoLLM-online" target="_blank">VideoLLM-online</a>, 
+      <a href="https://github.com/FoundationVision/VILA" target="_blank">VILA</a>, 
+      <a href="https://github.com/lyuchenyang/OVO-Bench" target="_blank">OVOBench</a>,
+      <a href="https://github.com/OpenGVLab/Ministream-Bench" target="_blank">StreamingBench</a>
+    </p>
+  </div>
+</section>
+<!-- End Acknowledgement section -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+</html>
