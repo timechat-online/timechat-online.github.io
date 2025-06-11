@@ -150,6 +150,16 @@
                       <span>Checkpoint</span>
                       </a>
                     </span>
+                    <!-- Checkpoints link -->
+                    <span class="link-block">
+                        <a href="https://github.com/yaolinli/TimeChat-Online/tree/main/demo" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-save"></i>
+                        </span>
+                        <span>Demo</span>
+                        </a>
+                    </span>
 
                   </div>
                 </div>
@@ -159,6 +169,34 @@
   </div>
 </section>
 
+<!-- Auto-playing video section -->
+<div class="container is-max-desktop">
+  <h2 class="title is-3 has-text-centered" style="margin-top: 2rem; margin-bottom: 1rem;">Demo Video</h2>
+  <div style="max-width: 1000px; margin-left: auto; margin-right: auto; overflow: hidden; padding: 0; position: relative; border-radius: 4px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/STFPAvznb1Q" title="TimeChat-Online Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px;"></iframe>
+    </div>
+    <p style="font-size: 0.9rem; color: #95A5B0; text-align: center; margin-top: 0.5rem; margin-bottom: 2rem;">
+      Demonstration of TimeChat-Online's real-time streaming video understanding capabilities.
+    </p>
+  </div>
+  <div class="hero-body" style="display: flex; justify-content: center; align-items: center; padding: 0; margin-bottom: 4rem;"></div>
+</div>
+
+<script>
+  // Initialize video player with sound enabled when user clicks play
+  document.addEventListener('DOMContentLoaded', function() {
+    var video = document.getElementById('demoVideo');
+    
+    // Ensure sound is enabled when user plays the video
+    video.addEventListener('play', function() {
+      video.muted = false;
+    });
+  });
+</script>
+
+  
+  
 <!-- New Case Study Section -->
 <section class="hero is-small">
   <div class="hero-body">
